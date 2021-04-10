@@ -1,0 +1,93 @@
+.background {
+  position: absolute;
+  background: #142431;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 90vw 8vw;
+}
+
+.sheet {
+  display: grid;
+  width: 70vw;
+  height: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -8rem;
+
+  background: #ffffff;
+  box-shadow: 0px 14px 55px rgba(0, 0, 0, 0.25);
+  border-radius: 2rem;
+  z-index: -1;
+
+  transform: skewY(5deg);
+}
+
+.content {
+  transform: skewY(-5deg);
+  margin-top: 120px;
+}
+
+.sideText {
+  justify-self: center;
+  align-self: center;
+  font-family: Bebas_regular;
+  font-size: 8rem;
+  color: #ffffff;
+  transform: rotate(90deg);
+  width: 50rem;
+  height: 9.2vw;
+  margin-top: 10rem;
+  letter-spacing: 0.3rem;
+}
+
+.sideTextSub {
+  font-size: 2.5rem;
+  color: #000000;
+  letter-spacing: 0;
+  margin-top: -20px;
+}
+
+.pageBottom {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 9rem;
+  background-color: #01bbb5;
+  text-align: center;
+  z-index: -1;
+}
+
+.copyRight {
+  font-family: Cantarell_regular;
+  position: fixed;
+  margin-top: 100px;
+  margin-left: 5vw;
+  margin-right: auto;
+  color: #ffffff;
+
+  font-size: 15px;
+}
+
+@media only screen and (max-width: 1180px) {
+  .sideText {
+    display: none;
+  }
+  .sheet {
+    width: 90vw;
+  }
+  .container {
+    grid-template-columns: 100vw 0vw;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .sheet {
+    width: 350px;
+  }
+}
