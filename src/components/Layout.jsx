@@ -3,7 +3,10 @@ import './Layout.css';
 
 const Layout = ({ children }) => {
   return (
-    <div className="background">
+    <>
+      <div class="bg"></div>
+      <div class="bg bg2"></div>
+      <div class="bg bg3"></div>
       <div className="pageBottom">
         <p className="copyRight">@Copyright or something</p>
       </div>
@@ -16,7 +19,7 @@ const Layout = ({ children }) => {
           <div className="sideTextSub">Personal reading list</div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
