@@ -4,16 +4,6 @@
   flex-direction: 'column';
 }
 
-.topText {
-  font-family: Bebas_regular;
-
-  font-size: 2rem;
-  margin-bottom: 0;
-  margin-left: 70px;
-  color: #1e1e1e;
-  backface-visibility: hidden;
-}
-
 .title {
   font-family: Bebas_regular;
   text-align: center;

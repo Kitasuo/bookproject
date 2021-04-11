@@ -1,6 +1,6 @@
 .background {
   position: absolute;
-  background: #142431;
+  background: #3dc1de;
   height: 100%;
   width: 100%;
   z-index: -2;
@@ -13,8 +13,9 @@
 
 .sheet {
   display: grid;
+  max-width: 1000px;
   width: 70vw;
-  height: 50rem;
+  height: 57rem;
   margin-left: auto;
   margin-right: auto;
   margin-top: -8rem;
@@ -58,7 +59,7 @@
   bottom: 0;
   left: 0;
   padding: 9rem;
-  background-color: #01bbb5;
+  background-color: #fe6150;
   text-align: center;
   z-index: -1;
 }
@@ -71,7 +72,17 @@
   margin-right: auto;
   color: #ffffff;
 
-  font-size: 15px;
+  font-size: 12px;
+}
+
+.topText {
+  font-family: Bebas_regular;
+
+  font-size: 2rem;
+  margin-bottom: 0;
+  margin-left: 70px;
+  color: #1e1e1e;
+  backface-visibility: hidden;
 }
 
 @media only screen and (max-width: 1180px) {

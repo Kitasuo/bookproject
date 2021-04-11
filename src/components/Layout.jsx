@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
           <div className="content">{children}</div>
         </div>
         <div className="sideText">
-          <div>WHAT YOU READ</div>
+          <div>The Right Book</div>
           <div className="sideTextSub">Personal reading list</div>
         </div>
       </div>
