@@ -1,12 +1,14 @@
 @font-face {
-  font-family: Bebas_regular;
-  src: url(./assets/fonts/BebasNeue-Regular.otf);
+  font-family: Mohave_regular;
+  src: url(./assets/fonts/Mohave-Regular.otf);
 }
 
 @font-face {
   font-family: Cantarell_regular;
   src: url(./assets/fonts/Cantarell-Regular.ttf);
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
 
 body {
   margin: 0;

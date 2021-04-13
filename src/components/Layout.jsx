@@ -1,22 +1,20 @@
 import React from 'react';
 import './Layout.css';
+import '../views/booklist/BookList.css';
 
 const Layout = ({ children }) => {
   return (
     <>
-      <div class="bg"></div>
-      <div class="bg bg2"></div>
-      <div class="bg bg3"></div>
+      <div className="bg"></div>
+      <div className="bg bg2"></div>
+      <div className="bg bg3"></div>
       <div className="pageBottom">
         <p className="copyRight">@Copyright or something</p>
       </div>
       <div className="container">
         <div className="sheet">
+          <div className="sideText">The Right Book</div>
           <div className="content">{children}</div>
-        </div>
-        <div className="sideText">
-          <div>The Right Book</div>
-          <div className="sideTextSub">Personal reading list</div>
         </div>
       </div>
     </>

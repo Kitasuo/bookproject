@@ -6,51 +6,28 @@
   z-index: -2;
 }
 
-.container {
-  display: grid;
-  grid-template-columns: 90vw 8vw;
-}
-
 .sheet {
-  display: grid;
-  max-width: 1000px;
-  width: 70vw;
-  height: 57rem;
-  margin-left: auto;
+  width: 97vw;
+  height: 850px;
   margin-right: auto;
-  margin-top: -8rem;
-
-  background: #ffffff;
+  background: rgba(255, 255, 255, 1);
   box-shadow: 0px 14px 55px rgba(0, 0, 0, 0.25);
-  border-radius: 2rem;
   z-index: -1;
-
-  transform: skewY(5deg);
+  float: right;
 }
 
 .content {
-  transform: skewY(-5deg);
-  margin-top: 120px;
+  margin-top: 50px;
 }
 
 .sideText {
-  justify-self: center;
-  align-self: center;
-  font-family: Bebas_regular;
-  font-size: 8rem;
-  color: #ffffff;
+  font-family: Mohave_regular;
+  font-size: 100px;
+  float: right;
+  margin-top: 400px;
   transform: rotate(90deg);
-  width: 50rem;
-  height: 0px;
-  margin-top: 5rem;
-  letter-spacing: 0.3rem;
-}
-
-.sideTextSub {
-  font-size: 2.5rem;
-  color: #000000;
-  letter-spacing: 0;
-  margin-top: -20px;
+  text-align: left;
+  margin-right: -130px;
 }
 
 .pageBottom {
@@ -59,7 +36,7 @@
   bottom: 0;
   left: 0;
   padding: 9rem;
-  background-color: #000000;
+  background-color: #dadada;
   text-align: center;
   z-index: -1;
 }
@@ -70,24 +47,30 @@
   margin-top: 100px;
   margin-left: 5vw;
   margin-right: auto;
-  color: #ffffff;
+  color: #111111;
 
   font-size: 12px;
 }
 
 .topText {
-  font-family: Bebas_regular;
+  opacity: 1;
+  font-family: Mohave_regular;
 
-  font-size: 2rem;
-  margin-bottom: 0;
-  margin-left: 70px;
-  color: #1e1e1e;
-  backface-visibility: hidden;
+  font-size: 50px;
+  margin-left: 100px;
+  color: #111111;
+  transition: color 0.5s ease;
+  width: 300px;
+  margin-top: -10px;
+}
+.topText:hover {
+  color: #7ac1b4;
+  cursor: pointer;
 }
 
 .bg {
   animation: slide 3s ease-in-out infinite alternate;
-  background-image: linear-gradient(-60deg, rgb(254, 97, 80) 30%, #09f 50%);
+  background-image: linear-gradient(-60deg, #50dbfe 30%, #7ac1b4 50%);
   bottom: 0;
   left: -50%;
   opacity: 1;
@@ -115,20 +98,18 @@
   }
 }
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1200px) {
   .sideText {
     display: none;
   }
-  .sheet {
-    width: 90vw;
-  }
-  .container {
-    grid-template-columns: 100vw 0vw;
-  }
-}
 
-@media only screen and (max-width: 400px) {
+  .topText {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .sheet {
-    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
