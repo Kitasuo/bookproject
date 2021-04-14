@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
       </div>
       <div className="container">
         <div className="sheet">
-          <div className="sideText">The Right Book</div>
+          <div className="sideText"> The Right Book</div>
           <div className="content">{children}</div>
         </div>
       </div>
