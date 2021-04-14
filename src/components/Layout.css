@@ -8,6 +8,7 @@
 
 .sheet {
   width: 97vw;
+  display: flex;
   height: 850px;
   margin-right: auto;
   background: rgba(255, 255, 255, 1);
@@ -17,17 +18,16 @@
 }
 
 .content {
+  flex: 1;
   margin-top: 50px;
 }
 
 .sideText {
   font-family: Mohave_regular;
   font-size: 100px;
-  float: right;
-  margin-top: 400px;
-  transform: rotate(90deg);
-  text-align: left;
-  margin-right: -130px;
+  text-orientation: sideways;
+  writing-mode: vertical-lr;
+  text-align: center;
 }
 
 .pageBottom {

@@ -1,28 +1,33 @@
-.header {
-  display: flex;
-  justify-content: space-between;
-}
-
 .topRightText {
+  float: right;
+  margin-top: -120px;
+  margin-right: -200px;
   font-family: Mohave_regular;
   font-size: 60px;
   color: #7ac1b4;
-  margin-top: -10px;
 }
 
 .listContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 320px);
+  position: absolute;
+  grid-template-columns: auto auto auto auto auto;
   padding: 10px;
   grid-gap: 10px;
+  grid-template-rows: 320px 320px;
   margin-top: -40px;
   width: 80vw;
 }
 
 .gridItem {
-  padding: 20px 10px;
+  position: relative;
+  /* background-color: rgba(0, 0, 0, 0.05); */
+  /* border: 2px solid #fe6150; */
+  border-radius: 10px;
+  padding: 20px;
   font-size: 30px;
   text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .bookTable {
@@ -77,5 +82,29 @@
   }
   .topRightText {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .listContainer {
+    grid-template-columns: auto auto auto auto;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .listContainer {
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .listContainer {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .listContainer {
+    grid-template-columns: auto;
   }
 }
