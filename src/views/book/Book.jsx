@@ -1,13 +1,14 @@
 import React from 'react';
 import './Book.css';
 import image2Large from '../../assets/images/book2_large.png';
-import logo from '../../assets/images/logo.png';
 
 const Book = () => {
   return (
     <div>
-      <p className="topText">The Right Book</p>
-      <p className="topRightText">Reading List</p>
+      <div className="header">
+        <p className="topText">The Right Book</p>
+        <p className="topRightText">Discover</p>
+      </div>
       <div className="gridContainer">
         <img src={image2Large} alt="book2Large" className="image"></img>
         <div className="textContainer">

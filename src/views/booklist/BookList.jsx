@@ -24,8 +24,35 @@ const BookList = () => {
         <p className="topText">The Right Book</p>
         <p className="topRightText">Discover</p>
       </div>
-
       <div className="listContainer">
+        <div className="gridItem">
+          <div>
+            <img src={image} alt="book1" className="bookImage" />
+          </div>
+          <p className="listTitle">All the Light We Cannot See</p>
+          <p className="listAuthor">Anthony Doerr</p>
+        </div>
+        <div className="gridItem">
+          <div>
+            <img src={image} alt="book1" className="bookImage" />
+          </div>
+          <p className="listTitle">All the Light We Cannot See</p>
+          <p className="listAuthor">Anthony Doerr</p>
+        </div>
+        <div className="gridItem">
+          <div>
+            <img src={image} alt="book1" className="bookImage" />
+          </div>
+          <p className="listTitle">All the Light We Cannot See</p>
+          <p className="listAuthor">Anthony Doerr</p>
+        </div>
+        <div className="gridItem">
+          <div>
+            <img src={image} alt="book1" className="bookImage" />
+          </div>
+          <p className="listTitle">All the Light We Cannot See</p>
+          <p className="listAuthor">Anthony Doerr</p>
+        </div>
         <div className="gridItem">
           <div>
             <img src={image} alt="book1" className="bookImage" />

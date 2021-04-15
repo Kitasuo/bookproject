@@ -7,16 +7,15 @@
   font-family: Mohave_regular;
   font-size: 60px;
   color: #7ac1b4;
-  margin-top: -10px;
+  margin-top: -20px;
 }
 
 .listContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 320px);
-  padding: 10px;
+  grid-template-columns: repeat(auto-fit, 300px);
+  padding: 5px;
   grid-gap: 10px;
-  margin-top: -40px;
-  width: 80vw;
+  margin-top: -30px;
 }
 
 .gridItem {
@@ -42,7 +41,6 @@
 }
 
 .bookImage:hover {
-  /* width: 135px; */
   transform: rotate(10deg);
 }
 
@@ -50,7 +48,7 @@
   margin-top: 20px;
   font-family: Mohave_regular;
   font-size: 21px;
-  max-width: 125px;
+  max-width: 130px;
   margin-left: auto;
   margin-right: auto;
   transition: all 0.5s ease;
@@ -60,20 +58,26 @@
 .listTitle:hover {
   color: #7ac1b4;
   cursor: pointer;
-  font-size: 22px;
 }
 
 .listAuthor {
   font-family: Cantarell_regular;
   font-size: 15px;
+  margin-top: -10px;
   margin-left: auto;
   margin-right: auto;
   color: #7ac1b4;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 810px) {
+  .sheet {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .listContainer {
-    width: 95vw;
+    float: none;
+    justify-content: center;
   }
   .topRightText {
     display: none;
