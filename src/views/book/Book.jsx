@@ -1,8 +1,28 @@
 import React from 'react';
 import './Book.css';
 import image2Large from '../../assets/images/book2_large.png';
+import { useParams } from 'react-router-dom';
 
 const Book = () => {
+  const [book, setBook] = React.useState(null);
+
+  const { id } = useParams();
+  console.log(id);
+
+  React.useEffect(() => {
+    const fetchBooks = async () => {
+      const response = await fetch(`https://localhost:44396/api/Books/${id}`, { method: 'GET' });
+      const data = await response.json();
+      setBook(data);
+      console.log(data);
+    };
+    fetchBooks();
+  }, [id]);
+
+  if (book === null) {
+    return null;
+  }
+
   return (
     <div>
       <div className="header">
@@ -12,22 +32,16 @@ const Book = () => {
       <div className="gridContainer">
         <img src={image2Large} alt="book2Large" className="image"></img>
         <div className="textContainer">
-          <div className="bookTitle">
-            The Princess
-            <br />
-            Bride
-          </div>
-          <div className="bookAuthor">William Goldman</div>
-          <div className="bookDescription">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin placerat urna non convallis varius. Maecenas
-            a lacus nec nibh dictum auctor. Etiam scelerisque risus quis leo feugiat sodales. Proin placerat urna non
-            convallis varius. Sed mollis elit ac diam rutrum, ut sodales enim finibus. Aenean neque augue, gravida sed
-            metus sit amet, bibendum convallis nibh. Duis faucibus leo in eros posuere. <br /> <br /> Consectetur
-            adipiscing elit. Proin placerat urna non convallis varius. Maecenas a lacus nec nibh dictum auctor. Etiam
-            scelerisque risus quis leo feugiat sodales.
-          </div>
+          <div className="bookTitle">{book.title}</div>
+          <div className="bookAuthor">{book.author}</div>
+          <div className="bookDescription">{book.description}</div>
           <div className="rating">
-            ★★★★★ <span className="finished">Finished reading 24.3.2021</span>
+            {[...Array(book.stars)].map((_, i) => (
+              <span className="rating" key={i}>
+                ★
+              </span>
+            ))}
+            <span className="finished">Finished reading {book.finishedReading}</span>
           </div>
           <div className="buttonsWrap">
             <button className="bookButton1">← Previous Book</button>{' '}

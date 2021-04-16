@@ -1,6 +1,6 @@
 import image from '../../../assets/images/book.png';
 
-const BookComponent = ({ book }) => {
+const BookListItem = ({ book }) => {
   return (
     <div>
       <div className="gridItem">
@@ -12,4 +12,4 @@ const BookComponent = ({ book }) => {
   );
 };
 
-export default BookComponent;
+export default BookListItem;

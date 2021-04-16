@@ -1,8 +1,20 @@
 import React from 'react';
 import './BookList.css';
-import BookComponent from './components/BookComponent';
+import BookListItem from './components/BookListItem';
 
-const BookList = ({ books }) => {
+const BookList = () => {
+  const [books, setBooks] = React.useState([]);
+
+  React.useEffect(() => {
+    const fetchBooks = async () => {
+      const response = await fetch('https://localhost:44396/api/Books', { method: 'GET' });
+      const data = await response.json();
+      setBooks(data);
+      console.log(data);
+    };
+    fetchBooks();
+  }, []);
+
   return (
     <div>
       <div className="header">
@@ -11,7 +23,7 @@ const BookList = ({ books }) => {
       </div>
       <div className="listContainer">
         {books.map((book) => (
-          <BookComponent key={book.id} book={book} />
+          <BookListItem key={book.id} book={book} />
         ))}
       </div>
     </div>
