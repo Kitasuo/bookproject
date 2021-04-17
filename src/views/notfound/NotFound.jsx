@@ -1,11 +1,14 @@
 import React from 'react';
 import './NotFound.css';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 const NotFound = () => {
   return (
     <>
       <div className="header">
-        <p className="topText">The Right Book</p>
+        <Link to="/">
+          <p className="topText">The Right Book</p>{' '}
+        </Link>
         <p className="topRightText">Discover</p>
       </div>
       <h2 className="title">Page Not Found</h2>

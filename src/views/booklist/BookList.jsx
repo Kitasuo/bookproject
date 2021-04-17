@@ -21,6 +21,7 @@ const BookList = () => {
         <p className="topText">The Right Book</p>
         <p className="topRightText">Discover</p>
       </div>
+
       <div className="listContainer">
         {books.map((book) => (
           <BookListItem key={book.id} book={book} />

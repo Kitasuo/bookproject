@@ -2,19 +2,19 @@ import React from 'react';
 import './Book.css';
 import image2Large from '../../assets/images/book2_large.png';
 import { useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 const Book = () => {
   const [book, setBook] = React.useState(null);
 
   const { id } = useParams();
-  console.log(id);
 
   React.useEffect(() => {
     const fetchBooks = async () => {
       const response = await fetch(`https://localhost:44396/api/Books/${id}`, { method: 'GET' });
       const data = await response.json();
       setBook(data);
-      console.log(data);
+      //console.log(data);
     };
     fetchBooks();
   }, [id]);
@@ -26,11 +26,14 @@ const Book = () => {
   return (
     <div>
       <div className="header">
-        <p className="topText">The Right Book</p>
+        <Link to="/">
+          <p className="topText">The Right Book</p>
+        </Link>
         <p className="topRightText">Discover</p>
       </div>
       <div className="gridContainer">
-        <img src={image2Large} alt="book2Large" className="image"></img>
+        <canvas className="bookCanvas"></canvas>
+        {/* <img src={image2Large} alt="book2Large" className="image"></img> */}
         <div className="textContainer">
           <div className="bookTitle">{book.title}</div>
           <div className="bookAuthor">{book.author}</div>
@@ -41,11 +44,15 @@ const Book = () => {
                 ★
               </span>
             ))}
-            <span className="finished">Finished reading {book.finishedReading}</span>
+            <span className="finished">Finished reading {book.finishedReading.slice(0, 10)}</span>
           </div>
           <div className="buttonsWrap">
-            <button className="bookButton1">← Previous Book</button>{' '}
-            <button className="bookButton2">Next Book →</button>
+            <Link to={`/book/${book.id - 1}`}>
+              <button className="bookButton1">← Previous Book</button>
+            </Link>
+            <Link to={`/book/${book.id + 1}`}>
+              <button className="bookButton1">Next Book →</button>
+            </Link>
           </div>
         </div>
       </div>

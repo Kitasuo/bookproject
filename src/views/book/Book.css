@@ -7,6 +7,13 @@
   margin-top: -60px;
 }
 
+.bookCanvas {
+  display: grid;
+  border: 1px solid;
+  height: 500px;
+  width: 32vw;
+}
+
 .image {
   /* border: 1px solid rgba(0, 0, 0, 0.8); */
   position: static;
@@ -85,25 +92,10 @@
   border-radius: 10px;
   width: 170px;
   transition: all 0.5s ease;
+  margin-right: 10px;
 }
 
 .bookButton1:hover {
-  background-color: #2c645b;
-}
-
-.bookButton2 {
-  font-family: Cantarell_regular;
-  background-color: #7ac1b4;
-  color: white;
-  border: none;
-  padding: 15px 32px;
-  border-radius: 10px;
-  margin-left: 10vw;
-  width: 170px;
-  transition: all 0.5s ease;
-}
-
-.bookButton2:hover {
   background-color: #2c645b;
 }
 
@@ -142,7 +134,4 @@
     margin-top: 0px;
     width: 30vw;
   }
-}
-.bookButton2 {
-  margin-left: 0px;
 }
