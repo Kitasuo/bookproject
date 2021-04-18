@@ -7,6 +7,7 @@ import { Canvas, useThree, useLoader } from '@react-three/fiber';
 import Book3DItem from 'views/book/components/Book3DItem';
 import { OrbitControls, useGLTF, Html } from '@react-three/drei';
 import { HDRCubeTextureLoader } from 'three/examples/jsm/loaders/HDRCubeTextureLoader';
+import { ContactShadows } from '@react-three/drei';
 
 const Book = () => {
   const [book, setBook] = React.useState(null);
@@ -61,10 +62,19 @@ const Book = () => {
         <p className="topRightText">Discover</p>
       </div>
       <div className="gridContainer">
-        <Canvas className="bookCanvas" camera={{ fov: 70, position: [0, 3, 0] }}>
+        <Canvas className="bookCanvas" camera={{ fov: 75, position: [0, 3, 0] }}>
           <OrbitControls />
           {/* <ambientLight /> */}
           <Suspense fallback={<Html>loading..</Html>}>
+            <ContactShadows
+              rotation={[Math.PI / 2, 0, 0]}
+              position={[0, -1, 0]}
+              opacity={0.5}
+              width={40}
+              height={40}
+              blur={1}
+              far={9}
+            />
             <Environment />
             <Book3DItem position={[0, 0, 0]} />
           </Suspense>

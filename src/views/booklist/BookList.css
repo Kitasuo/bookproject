@@ -82,4 +82,9 @@
   .topRightText {
     display: none;
   }
+
+  .header {
+    display: block;
+    justify-content: space-between;
+  }
 }
