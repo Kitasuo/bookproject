@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
+import ReactDOM from 'react-dom';
 import './Book.css';
 import image2Large from '../../assets/images/book2_large.png';
 import { useParams } from 'react-router-dom';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Canvas, useFrame } from '@react-three/fiber';
+import Book3DItem from 'views/book/components/Book3DItem';
+import { OrbitControls, useGLTF } from '@react-three/drei';
+import { HDRCubeTextureLoader } from 'three/examples/jsm/loaders/HDRCubeTextureLoader';
 
 const Book = () => {
   const [book, setBook] = React.useState(null);
@@ -32,7 +37,12 @@ const Book = () => {
         <p className="topRightText">Discover</p>
       </div>
       <div className="gridContainer">
-        <canvas className="bookCanvas"></canvas>
+        <Canvas className="bookCanvas" camera={{ fov: 70, position: [0, 3, 0] }}>
+          <OrbitControls />
+          <ambientLight />
+          <pointLight position={[10, 10, 10]} />
+          <Book3DItem position={[0, 0, 0]} />
+        </Canvas>
         {/* <img src={image2Large} alt="book2Large" className="image"></img> */}
         <div className="textContainer">
           <div className="bookTitle">{book.title}</div>
