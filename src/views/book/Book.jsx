@@ -1,12 +1,11 @@
-import React, { useRef, useState } from 'react';
-import ReactDOM from 'react-dom';
+import React, { Suspense, useEffect } from 'react';
+import * as THREE from 'three';
 import './Book.css';
-import image2Large from '../../assets/images/book2_large.png';
 import { useParams } from 'react-router-dom';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useThree, useLoader } from '@react-three/fiber';
 import Book3DItem from 'views/book/components/Book3DItem';
-import { OrbitControls, useGLTF } from '@react-three/drei';
+import { OrbitControls, useGLTF, Html } from '@react-three/drei';
 import { HDRCubeTextureLoader } from 'three/examples/jsm/loaders/HDRCubeTextureLoader';
 
 const Book = () => {
@@ -28,6 +27,31 @@ const Book = () => {
     return null;
   }
 
+  // Environment map for Canvas
+  function Environment({ background = false }) {
+    const { gl, scene } = useThree();
+    const [cubeMap] = useLoader(
+      HDRCubeTextureLoader,
+      [['px.hdr', 'nx.hdr', 'py.hdr', 'ny.hdr', 'pz.hdr', 'nz.hdr']],
+      (loader) => {
+        loader.setDataType(THREE.UnsignedByteType);
+        loader.setPath('/hdri/');
+      },
+    );
+
+    useEffect(() => {
+      const gen = new THREE.PMREMGenerator(gl);
+      gen.compileEquirectangularShader();
+      const hdrCubeRenderTarget = gen.fromCubemap(cubeMap);
+      cubeMap.dispose();
+      gen.dispose();
+      if (background) scene.background = hdrCubeRenderTarget.texture;
+      scene.environment = hdrCubeRenderTarget.texture;
+      return () => (scene.environment = scene.background = null);
+    }, [cubeMap]);
+    return null;
+  }
+
   return (
     <div>
       <div className="header">
@@ -39,11 +63,14 @@ const Book = () => {
       <div className="gridContainer">
         <Canvas className="bookCanvas" camera={{ fov: 70, position: [0, 3, 0] }}>
           <OrbitControls />
-          <ambientLight />
-          <pointLight position={[10, 10, 10]} />
-          <Book3DItem position={[0, 0, 0]} />
+          {/* <ambientLight /> */}
+          <Suspense fallback={<Html>loading..</Html>}>
+            <Environment />
+            <Book3DItem position={[0, 0, 0]} />
+          </Suspense>
+          <directionalLight position={[10, 10, 5]} intensity={2} />
+          <directionalLight position={[-10, -10, -5]} intensity={1} />
         </Canvas>
-        {/* <img src={image2Large} alt="book2Large" className="image"></img> */}
         <div className="textContainer">
           <div className="bookTitle">{book.title}</div>
           <div className="bookAuthor">{book.author}</div>
