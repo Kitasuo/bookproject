@@ -118,18 +118,18 @@
     "images" : [
         {
             "mimeType" : "image/jpeg",
-            "name" : "Book_Material.001_Normal.1001",
-            "uri" : "Book_Material_001_Normal_1001.jpg"
+            "name" : "normal",
+            "uri" : "normal.jpg"
         },
         {
             "mimeType" : "image/jpeg",
-            "name" : "book_color",
-            "uri" : "book_color.jpg"
+            "name" : "color",
+            "uri" : "color.jpg"
         },
         {
             "mimeType" : "image/png",
-            "name" : "Book_Material.001_Roughness.1001",
-            "uri" : "Book_Material_001_Roughness_1001.png"
+            "name" : "roughness",
+            "uri" : "roughness.png"
         },
         {
             "mimeType" : "image/jpeg",

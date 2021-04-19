@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { Canvas, useThree, useLoader } from '@react-three/fiber';
 import Book3DItem from 'views/book/components/Book3DItem';
-import { OrbitControls, useGLTF, Html } from '@react-three/drei';
+import { OrbitControls, Html } from '@react-three/drei';
 import { HDRCubeTextureLoader } from 'three/examples/jsm/loaders/HDRCubeTextureLoader';
 import { ContactShadows } from '@react-three/drei';
 
@@ -49,7 +49,7 @@ const Book = () => {
       if (background) scene.background = hdrCubeRenderTarget.texture;
       scene.environment = hdrCubeRenderTarget.texture;
       return () => (scene.environment = scene.background = null);
-    }, [cubeMap]);
+    });
     return null;
   }
 
@@ -76,7 +76,7 @@ const Book = () => {
               far={9}
             />
             <Environment />
-            <Book3DItem position={[0, 0, 0]} />
+            <Book3DItem imageid={book.id} />
           </Suspense>
           <directionalLight position={[10, 10, 5]} intensity={2} />
           <directionalLight position={[-10, -10, -5]} intensity={1} />
