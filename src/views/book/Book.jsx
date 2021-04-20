@@ -63,7 +63,15 @@ const Book = () => {
       </div>
       <div className="gridContainer">
         <Canvas className="bookCanvas" camera={{ fov: 75, position: [0, 3, 0] }}>
-          <OrbitControls />
+          <OrbitControls
+            maxDistance={5}
+            minDistance={2}
+            rotateSpeed={0.3}
+            enableDamping={true}
+            maxPolarAngle={1.5}
+            screenSpacePanning={false}
+            zoomSpeed={0.5}
+          />
           {/* <ambientLight /> */}
           <Suspense fallback={<Html>loading..</Html>}>
             <ContactShadows
@@ -91,7 +99,7 @@ const Book = () => {
                 ★
               </span>
             ))}
-            <span className="finished">Finished reading {book.finishedReading.slice(0, 10)}</span>
+            <span className="finished">Finished reading {book.finishedReading}</span>
           </div>
           <div className="buttonsWrap">
             <Link to={`/book/${book.id - 1}`}>
