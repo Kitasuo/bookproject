@@ -5,11 +5,11 @@
   width: 75vw;
   grid-column-gap: 20px;
   margin-top: -60px;
-  height: 650px;
+  height: fit-content;
 }
 
 .bookCanvas {
-  height: 500px;
+  height: 600px !important;
   width: 32vw;
 }
 
