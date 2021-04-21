@@ -19,7 +19,6 @@ const Book = () => {
       const response = await fetch(`https://localhost:44396/api/Books/${id}`, { method: 'GET' });
       const data = await response.json();
       setBook(data);
-      //console.log(data);
     };
     fetchBooks();
   }, [id]);
@@ -72,7 +71,6 @@ const Book = () => {
             screenSpacePanning={false}
             zoomSpeed={0.5}
           />
-          {/* <ambientLight /> */}
           <Suspense fallback={<Html>loading..</Html>}>
             <ContactShadows
               rotation={[Math.PI / 2, 0, 0]}

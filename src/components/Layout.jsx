@@ -5,9 +5,7 @@ import '../views/booklist/BookList.css';
 const Layout = ({ children }) => {
   return (
     <>
-      <div className="bg"></div>
-      <div className="bg bg2"></div>
-      <div className="bg bg3"></div>
+      <div className="background"></div>
       <div className="pageBottom">
         <p className="copyRight">@Copyright or something</p>
       </div>

@@ -5,12 +5,12 @@ import BookListItem from './components/BookListItem';
 const BookList = () => {
   const [books, setBooks] = React.useState([]);
 
+  // Tietokantakutsu
   React.useEffect(() => {
     const fetchBooks = async () => {
       const response = await fetch('https://localhost:44396/api/Books', { method: 'GET' });
       const data = await response.json();
       setBooks(data);
-      console.log(data);
     };
     fetchBooks();
   }, []);
