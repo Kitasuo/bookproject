@@ -14,6 +14,7 @@ const Book = () => {
 
   const { id } = useParams();
 
+  // Tietokantakutsu
   React.useEffect(() => {
     const fetchBooks = async () => {
       const response = await fetch(`https://localhost:44396/api/Books/${id}`, { method: 'GET' });
@@ -97,7 +98,7 @@ const Book = () => {
                 ★
               </span>
             ))}
-            <span className="finished">Finished reading {book.finishedReading}</span>
+            <span className="finished">Finished reading {book.finishedReading.slice(0, 10)}</span>
           </div>
           <div className="buttonsWrap">
             <Link to={`/book/${book.id - 1}`}>

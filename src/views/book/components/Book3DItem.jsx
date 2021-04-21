@@ -24,13 +24,7 @@ export default function Model(props) {
 
   return (
     <group ref={group} {...props} dispose={null}>
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Pages.geometry}
-        material={materials.PagesMaterial}
-        position={[-0.01, -0.12, -0.01]}
-      />
+      <mesh geometry={nodes.Pages.geometry} material={materials.PagesMaterial} position={[-0.01, -0.12, -0.01]} />
       <mesh geometry={nodes.Cover.geometry} position={[0.01, 0, -0.01]}>
         <meshStandardMaterial
           attach="material"
