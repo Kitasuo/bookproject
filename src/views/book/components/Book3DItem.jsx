@@ -6,9 +6,8 @@ import * as THREE from 'three';
 export default function Model(props) {
   const group = useRef();
   const { nodes, materials } = useGLTF('/Book.gltf');
-  console.log(props.position);
 
-  //Animation
+  // Animation
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
     group.current.rotation.z = 0.5 - (1 + Math.sin(t / 1.5)) / 5;
@@ -17,17 +16,12 @@ export default function Model(props) {
     group.current.position.y = (1 + Math.sin(t / 1.5)) / 6;
   });
 
-  // materials.CoverMaterial.map.anisotropy = 4;
-  // materials.CoverMaterial.envMapIntensity = 5;
-  // materials.PagesMaterial.envMapIntensity = 5;
-
-  //Load textures for material
+  // Load textures for material
   const newTexture = useLoader(THREE.TextureLoader, `/${props.imageid}.jpg`);
   const normals = useLoader(THREE.TextureLoader, '/normal.jpg');
   const roughness = useLoader(THREE.TextureLoader, '/roughness.jpg');
   newTexture.anisotropy = 4;
 
-  console.log(materials);
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
@@ -37,12 +31,7 @@ export default function Model(props) {
         material={materials.PagesMaterial}
         position={[-0.01, -0.12, -0.01]}
       />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Cover.geometry}
-        //material={materials.CoverMaterial}
-        position={[0.01, 0, -0.01]}>
+      <mesh geometry={nodes.Cover.geometry} position={[0.01, 0, -0.01]}>
         <meshStandardMaterial
           attach="material"
           map={newTexture}
