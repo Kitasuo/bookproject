@@ -9,11 +9,11 @@ export default function Model(props) {
 
   // Animation
   useFrame((state) => {
-    const t = state.clock.getElapsedTime();
-    group.current.rotation.z = 0.5 - (1 + Math.sin(t / 1.5)) / 5;
-    group.current.rotation.x = Math.cos(t / 4) / 6;
-    group.current.rotation.y = Math.sin(t / 4) / 8;
-    group.current.position.y = (1 + Math.sin(t / 1.5)) / 6;
+    const time = state.clock.getElapsedTime();
+    group.current.rotation.z = 0.5 - (1 + Math.sin(time / 1.5)) / 5;
+    group.current.rotation.x = Math.cos(time / 4) / 6;
+    group.current.rotation.y = Math.sin(time / 4) / 8;
+    group.current.position.y = (1 + Math.sin(time / 1.5)) / 6;
   });
 
   // Load textures for material
