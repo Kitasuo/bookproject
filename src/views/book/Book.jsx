@@ -2,7 +2,7 @@ import React, { Suspense, useEffect } from 'react';
 import * as THREE from 'three';
 import './Book.css';
 import { useParams } from 'react-router-dom';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Canvas, useThree, useLoader } from '@react-three/fiber';
 import Book3DItem from 'views/book/components/Book3DItem';
 import { OrbitControls, Html } from '@react-three/drei';
