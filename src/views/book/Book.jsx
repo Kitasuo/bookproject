@@ -12,12 +12,13 @@ import { ContactShadows } from '@react-three/drei';
 const Book = () => {
   const [book, setBook] = React.useState(null);
 
+  // Hae URL:stä id
   const { id } = useParams();
 
   // Tietokantakutsu
   React.useEffect(() => {
     const fetchBooks = async () => {
-      const response = await fetch(`https://localhost:44396/api/Books/${id}`, { method: 'GET' });
+      const response = await fetch(`https://kimmobook.azurewebsites.net/api/Books/${id}`, { method: 'GET' });
       const data = await response.json();
       setBook(data);
     };
