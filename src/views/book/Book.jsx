@@ -73,7 +73,7 @@ const Book = () => {
             screenSpacePanning={false}
             zoomSpeed={0.5}
           />
-          <Suspense fallback={<Html>loading..</Html>}>
+          <Suspense fallback={<Html>Loading...</Html>}>
             <ContactShadows
               rotation={[Math.PI / 2, 0, 0]}
               position={[0, -1, 0]}

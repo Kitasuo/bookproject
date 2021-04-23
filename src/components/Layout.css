@@ -4,6 +4,7 @@ a {
 
 .sheet {
   width: 95vw;
+  min-height: 830px;
   display: flex;
   align-items: baseline;
   margin-right: auto;
