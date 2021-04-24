@@ -82,6 +82,7 @@
   transition: all 0.5s ease;
   margin-right: 10px;
   outline: none;
+  margin-bottom: 5px;
 }
 
 .bookButton1:hover {
