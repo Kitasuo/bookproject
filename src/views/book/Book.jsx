@@ -54,6 +54,24 @@ const Book = () => {
     return null;
   }
 
+  // id's for uttons
+  function buttonPrevious() {
+    if (book.id > 1) {
+      return book.id - 1;
+    } else {
+      return book.id;
+    }
+  }
+  console.log(book);
+
+  function buttonNext() {
+    if (book.id < 7) {
+      return book.id + 1;
+    } else {
+      return book.id;
+    }
+  }
+
   return (
     <div>
       <div className="header">
@@ -102,10 +120,10 @@ const Book = () => {
             <span className="finished">Finished reading {book.finishedReading.slice(0, 10)}</span>
           </div>
           <div className="buttonsWrap">
-            <Link to={`/book/${book.id - 1}`}>
+            <Link to={`/book/${buttonPrevious()}`}>
               <button className="bookButton1">← Previous Book</button>
             </Link>
-            <Link to={`/book/${book.id + 1}`}>
+            <Link to={`/book/${buttonNext()}`}>
               <button className="bookButton1">Next Book →</button>
             </Link>
           </div>
