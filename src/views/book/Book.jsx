@@ -12,10 +12,10 @@ import { ContactShadows } from '@react-three/drei';
 const Book = () => {
   const [book, setBook] = React.useState(null);
 
-  // Hae URL:stä id
+  // Get id from URL
   const { id } = useParams();
 
-  // Tietokantakutsu
+  // Call database
   React.useEffect(() => {
     const fetchBooks = async () => {
       const response = await fetch(`https://kimmobook.azurewebsites.net/api/Books/${id}`, { method: 'GET' });
@@ -54,7 +54,7 @@ const Book = () => {
     return null;
   }
 
-  // id's for uttons
+  // id's for next and previous buttons
   function buttonPrevious() {
     if (book.id > 1) {
       return book.id - 1;
@@ -62,15 +62,16 @@ const Book = () => {
       return book.id;
     }
   }
-  console.log(book);
 
   function buttonNext() {
-    if (book.id < 7) {
+    if (book.id < 8) {
       return book.id + 1;
     } else {
       return book.id;
     }
   }
+
+  console.log(book.length);
 
   return (
     <div>

@@ -5,7 +5,7 @@ import BookListItem from './components/BookListItem';
 const BookList = () => {
   const [books, setBooks] = React.useState([]);
 
-  // Tietokantakutsu
+  // Call database
   React.useEffect(() => {
     const fetchBooks = async () => {
       const response = await fetch('https://kimmobook.azurewebsites.net/api/Books', { method: 'GET' });
