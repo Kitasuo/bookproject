@@ -1,62 +1,28 @@
-import React, { Suspense, useEffect } from 'react';
-import * as THREE from 'three';
+import React, { Suspense } from 'react';
 import './Book.css';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { Canvas, useThree, useLoader } from '@react-three/fiber';
-import Book3DItem from 'views/book/components/Book3DItem';
+import { Canvas } from '@react-three/fiber';
+import Book3DItem from '../../components/Book3DItem';
 import { OrbitControls, Html } from '@react-three/drei';
-import { HDRCubeTextureLoader } from 'three/examples/jsm/loaders/HDRCubeTextureLoader';
 import { ContactShadows } from '@react-three/drei';
+import Environment from '../../components/Environment';
+import { useFetchBooks } from 'hooks/useFetchBooks';
 
 const Book = () => {
-  const [book, setBook] = React.useState(null);
-
   // Get id from URL
   const { id } = useParams();
 
   // Call database
-  React.useEffect(() => {
-    const fetchBooks = async () => {
-      const response = await fetch(`https://kimmobook.azurewebsites.net/api/Books/${id}`, { method: 'GET' });
-      const data = await response.json();
-      setBook(data);
-    };
-    fetchBooks();
-  }, [id]);
+  const book = useFetchBooks(id);
 
   if (book === null) {
     return null;
   }
 
-  // Environment map for Canvas
-  function Environment({ background = false }) {
-    const { gl, scene } = useThree();
-    const [cubeMap] = useLoader(
-      HDRCubeTextureLoader,
-      [['px.hdr', 'nx.hdr', 'py.hdr', 'ny.hdr', 'pz.hdr', 'nz.hdr']],
-      (loader) => {
-        loader.setDataType(THREE.UnsignedByteType);
-        loader.setPath('/hdri/');
-      },
-    );
-
-    useEffect(() => {
-      const gen = new THREE.PMREMGenerator(gl);
-      gen.compileEquirectangularShader();
-      const hdrCubeRenderTarget = gen.fromCubemap(cubeMap);
-      cubeMap.dispose();
-      gen.dispose();
-      if (background) scene.background = hdrCubeRenderTarget.texture;
-      scene.environment = hdrCubeRenderTarget.texture;
-      return () => (scene.environment = scene.background = null);
-    });
-    return null;
-  }
-
   // id's for next and previous buttons
   function buttonPrevious() {
-    if (book.id > 1) {
+    if (book.id > 7) {
       return book.id - 1;
     } else {
       return book.id;
@@ -64,14 +30,12 @@ const Book = () => {
   }
 
   function buttonNext() {
-    if (book.id < 8) {
+    if (book.id < 14) {
       return book.id + 1;
     } else {
       return book.id;
     }
   }
-
-  console.log(book.length);
 
   return (
     <div>

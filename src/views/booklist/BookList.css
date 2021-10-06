@@ -51,6 +51,21 @@
   transform: rotate(10deg);
 }
 
+.searchInput {
+  font-family: Cantarell_regular;
+  color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.09);
+  border-radius: 89px;
+  border-style: none;
+  padding: 10px;
+  padding-left: 16px;
+  margin-right: 40px;
+}
+
+*:focus {
+  outline: none;
+}
+
 .listTitle {
   font-family: Mohave_regular;
   font-size: 21px;
@@ -79,6 +94,10 @@
   .sheet {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .searchInput {
+    display: none;
   }
 
   .listContainer {

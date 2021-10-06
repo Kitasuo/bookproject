@@ -1,0 +1,44 @@
+.landingContainer {
+  background: linear-gradient(170deg, #ffffff 70%, #f8f8f8 30%);
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.landingCanvas {
+  height: 700px !important;
+  width: 50vw !important;
+}
+
+.discoverText {
+  font-family: Mohave_regular;
+  font-size: 150px;
+  color: #7ac1b4;
+  text-align: center;
+}
+
+.rightText {
+  font-family: Mohave_regular;
+  font-size: 80px;
+  color: black;
+  text-align: center;
+}
+
+.enterButton {
+  font-family: Cantarell_regular;
+  font-size: 25px;
+  background-color: #7ac1b4;
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  border-radius: 10px;
+  width: 180px;
+  transition: all 0.5s ease;
+  outline: none;
+}
+
+.enterButton:hover {
+  background-color: #2c645b;
+}

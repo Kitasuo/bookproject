@@ -4,26 +4,50 @@ import BookListItem from './components/BookListItem';
 
 const BookList = () => {
   const [books, setBooks] = React.useState([]);
+  const [searchTerm, setSearchTerm] = React.useState('');
+  const [filteredBooks, setFilteredBooks] = React.useState(books);
 
-  // Call database
   React.useEffect(() => {
     const fetchBooks = async () => {
-      const response = await fetch('https://kimmobook.azurewebsites.net/api/Books', { method: 'GET' });
+      const response = await fetch('https://localhost:44396/api/Books', { method: 'GET' });
       const data = await response.json();
       setBooks(data);
     };
     fetchBooks();
   }, []);
 
+  const handleSearchTermChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  React.useEffect(() => {
+    const result = books.filter(
+      (book) =>
+        book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        book.author.toLowerCase().includes(searchTerm.toLowerCase()),
+    );
+    setFilteredBooks(result);
+  }, [searchTerm, books]);
+
   return (
     <div>
       <div className="header">
         <p className="topText">The Right Book</p>
+        <section className="search">
+          <input
+            type="text"
+            className="searchInput"
+            placeholder="Search books"
+            value={searchTerm}
+            onChange={handleSearchTermChange}
+            autoFocus
+          />
+        </section>
         <p className="topRightText">Discover</p>
       </div>
 
       <div className="listContainer">
-        {books.map((book) => (
+        {filteredBooks.map((book) => (
           <BookListItem key={book.id} book={book} />
         ))}
       </div>
